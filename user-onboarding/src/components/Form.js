@@ -14,7 +14,9 @@ const UserForm = ({values, errors, touched, isSubmitting, status}) => {
     return (
     <>
         <Form className="form">
-            <Field className="field" type="name" name="name" placeholder="Name" />
+            <div className="field">
+                <Field type="name" name="name" placeholder="Name" />
+            </div>
             <div className="field">
                 <Field type="email" name="email" placeholder="Email" />
                 { touched.email && errors.email && <p>{errors.email}</p> }
@@ -24,15 +26,18 @@ const UserForm = ({values, errors, touched, isSubmitting, status}) => {
                 { touched.password && errors.password && <p>{errors.password}</p> }
             </div>
             <Field component="select" name="dropdown" className="dropdown">
-                <option value="favoriteThings">Please select your favorite:</option>
-                <option value="freeStuff">Free Stuff</option>
-                <option value="iceCream">Ice cream</option>
-                <option value="all">Porque no los dos</option>
+                <option value="roles">Who do you want to be:</option>
+                <option value="prince">Prince</option>
+                <option value="50cent">50 Cent</option>
+                <option value="britney">Britney</option>
+                <option value="none">Dear lord none of those</option>
             </Field>
-            <label>
-                We both know you didn't read the terms:
+            <label className="terms">
+                <br></br>
+                We both know you didn't read the terms, but whatever:
                 <Field type="checkbox" name="terms" checked={values.terms}/>
             </label>
+            <br></br>
             <button type="submit" disabled={isSubmitting}>Submit!</button>
             <div className="currentUsers">
                 <h1>Current Friends</h1>
